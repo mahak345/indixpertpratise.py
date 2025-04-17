@@ -1,28 +1,20 @@
-import json  # This helps us save and load data in a file
+import json  
 
 # Function to register a student
 def register_student(student, filename="students.json"):
     try:
-        # Try to open the file and read existing data
         with open(filename, "r") as file:
             students = json.load(file)
     except FileNotFoundError:
-        # If the file doesn't exist, start with an empty list
         students = []
-
-    # Add the new student to the list
     students.append(student)
 
-    # Save the updated list back to the file
     with open(filename, "w") as file:
         json.dump(students, file, indent=4)
 
     print("✅ Student registered successfully!")
-
-# Function to show all students
 def show_all_students(filename="students.json"):
     try:
-        # Try to open and read student data
         with open(filename, "r") as file:
             students = json.load(file)
 
@@ -37,7 +29,6 @@ def show_all_students(filename="students.json"):
     except FileNotFoundError:
         print("😕 No student data found.")
 
-# Function to search students by location
 def search_by_location(location, filename="students.json"):
     try:
         with open(filename, "r") as file:
@@ -59,7 +50,6 @@ def search_by_location(location, filename="students.json"):
     except FileNotFoundError:
         print("😕 No student data found.")
 
-# Main menu to use the program
 while True:
     print("\n📚 Student Registration System")
     print("1. Register Student")
@@ -77,7 +67,6 @@ while True:
         location = input("Enter location: ")
         qualifications = input("Enter qualifications: ")
 
-        # Store the data in a dictionary
         student = {
             "id": student_id,
             "name": name,
