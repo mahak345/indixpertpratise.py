@@ -1,6 +1,5 @@
 import json  
 
-# Function to register a student
 def register_student(student, filename="students.json"):
     try:
         with open(filename, "r") as file:
@@ -60,7 +59,6 @@ while True:
     choice = input("Enter your choice (1-4): ")
 
     if choice == "1":
-        # Ask user for student info
         student_id = input("Enter student ID: ")
         name = input("Enter name: ")
         contact = input("Enter contact info: ")
